@@ -1,0 +1,14 @@
+workflows:
+  dowx-android-debug:
+    name: DOWX Android Debug APK
+    max_build_duration: 60
+    instance_type: linux_x2
+    scripts:
+      - name: Unpack DOWX source
+        script: tar -xzf dowx-source.tar.gz --strip-components=1
+      - name: Set Android SDK location
+        script: echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+      - name: Build DOWX debug APK
+        script: gradle assembleDebug
+    artifacts:
+      - app/build/outputs/apk/debug/app-debug.apk
