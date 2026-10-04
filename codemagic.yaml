@@ -2,7 +2,7 @@ workflows:
   dowx-android-debug:
     name: DOWX Android Debug APK
     max_build_duration: 60
-    instance_type: linux_x2
+    instance_type: mac_mini_m2 
     scripts:
       - name: Unpack DOWX source
         script: tar -xzf dowx-source.tar.gz --strip-components=1
